@@ -2,12 +2,14 @@ package tests.BaseTest;
 
 import common.CommonAction;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import pages.DemoQAMainPage.MainPage;
+import pages.ElementsPage.ElementsPage;
 import pages.base.BasePage;
 
 import java.time.Duration;
@@ -18,6 +20,9 @@ public class BaseTest {
     protected BasePage basePage = new BasePage(driver);
     protected MainPage mainPage = new MainPage(driver);
 
+    protected ElementsPage elementsPage = new ElementsPage(driver);
+
+    protected By textBoxText = By.xpath("//h1[@class='text-center']");
     WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     // method to switch/create new window in browser
