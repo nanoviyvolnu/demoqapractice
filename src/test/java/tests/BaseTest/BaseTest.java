@@ -23,6 +23,9 @@ public class BaseTest {
     protected ElementsPage elementsPage = new ElementsPage(driver);
 
     protected By textBoxText = By.xpath("//h1[@class='text-center']");
+
+    protected By checkBoxSelectedHome = By.xpath("//div[@class='display-result mt-4']");
+
     WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     // method to switch/create new window in browser

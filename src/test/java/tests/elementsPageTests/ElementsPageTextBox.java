@@ -21,7 +21,9 @@ public class ElementsPageTextBox extends BaseTest {
         mainPage.clickElementsButton();
         elementsPage.clickTextBoxButton();
 
-        Assert.assertEquals(textBoxText, expectedResult);
+        String actualResult = driver.findElement(textBoxText).getText();
+
+        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @Test
