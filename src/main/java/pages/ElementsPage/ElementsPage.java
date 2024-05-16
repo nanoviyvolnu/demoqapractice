@@ -2,9 +2,12 @@ package pages.ElementsPage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
 public class ElementsPage extends BasePage {
+
+    BasePage basePage = new BasePage(driver);
 
 
     By textBoxButton = By.xpath("//ul[@class='menu-list']//span[text()='Text Box']");
@@ -20,6 +23,15 @@ public class ElementsPage extends BasePage {
     By checkBoxButton = By.xpath("//ul[@class='menu-list']//span[text()='Check Box']");
 
     By checkBoxHome = By.xpath("//span[@class='rct-checkbox']");
+
+    //
+
+    By radioButton = By.xpath("//div[@class='element-list collapse show']//li[@id='item-2']");
+    By radioButtonYes = By.xpath("//label[@for='yesRadio']");
+    By radioButtonImpressive = By.xpath("//label[@for='impressiveRadio']");
+    By radioButtonNo = By.xpath("//label[@for='noRadio']");
+
+
 
 
     public ElementsPage(WebDriver driver) {
@@ -53,4 +65,44 @@ public class ElementsPage extends BasePage {
         driver.findElement(checkBoxHome).click();
         return this;
     }
+
+    public ElementsPage clickRadioButton(){
+        driver.findElement(radioButton).click();
+        return this;
+    }
+
+    public ElementsPage clickYesRadioButton(){
+        WebElement radioButtonYesClick = driver.findElement(radioButtonYes);
+
+        basePage.waitElementIsVisible(radioButtonYesClick);
+
+
+        if(!radioButtonYesClick.isSelected()){
+            radioButtonYesClick.click();
+        }
+        return this;
+    }
+
+    public ElementsPage clickImpressiveRadioButton(){
+        WebElement radioButtonImpressiveClick = driver.findElement(radioButtonImpressive);
+
+        basePage.waitElementIsVisible(radioButtonImpressiveClick);
+        if(!radioButtonImpressiveClick.isSelected()){
+            radioButtonImpressiveClick.click();
+        }
+        return this;
+    }
+
+    public boolean clickNoRadioButton(){
+        WebElement radioButtonNoClick = driver.findElement(radioButtonImpressive);
+
+        basePage.waitElementIsVisible(radioButtonNoClick);
+        if(!radioButtonNoClick.isSelected()){
+            radioButtonNoClick.click();
+            return false;
+        }
+        return true;
+    }
+
+
 }

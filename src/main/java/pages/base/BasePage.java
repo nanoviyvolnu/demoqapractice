@@ -28,14 +28,12 @@ public class BasePage {
     public WebElement waitElementIsVisible(WebElement webElement){
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOf(webElement));
-
         return webElement;
     }
 
     public WebElement waitElementsIsVisible(List<WebElement> webElement){
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
                 .until(ExpectedConditions.visibilityOf((WebElement) webElement));
-
         return (WebElement) webElement;
     }
 }
