@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
+import java.util.List;
+
 public class ElementsPage extends BasePage {
 
     BasePage basePage = new BasePage(driver);
@@ -30,6 +32,19 @@ public class ElementsPage extends BasePage {
     By radioButtonYes = By.xpath("//label[@for='yesRadio']");
     By radioButtonImpressive = By.xpath("//label[@for='impressiveRadio']");
     By radioButtonNo = By.xpath("//label[@for='noRadio']");
+
+    //
+
+    By webTablesButton = By.xpath("//div[@class='element-list collapse show']//li[@id='item-3']");
+
+    By displayFiveRows = By.xpath("//span[@class='select-wrap -pageSizeOptions']//select[@aria-label='rows per page']//option[@value='5']");
+
+    By rows = By.xpath("//div[@class='rt-tbody']//div[@class='rt-tr-group']");
+
+    By addButton = By.xpath("//button[@id='addNewRecordButton']");
+
+    By modalWindow = By.xpath("//div[@class='modal-content']");
+
 
 
 
@@ -94,7 +109,7 @@ public class ElementsPage extends BasePage {
     }
 
     public boolean clickNoRadioButton(){
-        WebElement radioButtonNoClick = driver.findElement(radioButtonImpressive);
+        WebElement radioButtonNoClick = driver.findElement(radioButtonNo);
 
         basePage.waitElementIsVisible(radioButtonNoClick);
         if(!radioButtonNoClick.isSelected()){
@@ -102,6 +117,37 @@ public class ElementsPage extends BasePage {
             return false;
         }
         return true;
+    }
+
+    public ElementsPage clickWebTablesButton(){
+        driver.findElement(webTablesButton).click();
+        return this;
+    }
+
+    public ElementsPage clickToDisplayFiveRows(){
+        WebElement displayFive = driver.findElement(displayFiveRows);
+        basePage.waitElementIsVisible(displayFive);
+
+        displayFive.click();
+        return this;
+    }
+
+    public int checkDisplayedRows(){
+        List<WebElement> listRows = driver.findElements(rows);
+        int count = 0;
+        for (WebElement row : listRows) {
+                count++;
+        }
+        return count;
+    }
+
+    public ElementsPage clickAddButton(){
+        driver.findElement(addButton).click();
+        WebElement modalWindowElement = driver.findElement(modalWindow);
+        basePage.waitElementIsVisible(modalWindowElement);
+
+        driver.switchTo().activeElement();
+        return this;
     }
 
 

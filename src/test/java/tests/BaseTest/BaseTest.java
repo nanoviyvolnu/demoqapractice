@@ -26,6 +26,8 @@ public class BaseTest {
 
     protected By checkBoxSelectedHome = By.xpath("//div[@class='display-result mt-4']");
 
+    protected By modalText = By.xpath("//div[@class='modal-content']//div[@class='modal-title h4']");
+
     WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     // method to switch/create new window in browser
