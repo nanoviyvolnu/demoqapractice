@@ -1,7 +1,9 @@
 package common;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
@@ -20,8 +22,12 @@ public class CommonAction {
         if(driver == null){
             switch (PLATFORM_AND_BROWSER){
                 case "win_chrome":
+                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
-                    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                    break;
+                case "win_edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
                     break;
                 default:
                     Assert.fail("INCORRECT SETTED PLATFORM OR BROWSER NAME" + PLATFORM_AND_BROWSER);
