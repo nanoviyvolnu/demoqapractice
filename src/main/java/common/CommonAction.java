@@ -18,6 +18,7 @@ public class CommonAction {
 
     }
 
+
     public static WebDriver createDriver(){
         if(driver == null){
             switch (PLATFORM_AND_BROWSER){
