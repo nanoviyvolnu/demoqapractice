@@ -1,8 +1,8 @@
-package tests.clickElementsButton;
+package ui.tests.clickElementsButton;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.BaseTest.BaseTest;
+import ui.tests.BaseTest.BaseTest;
 
 public class ClieckElementsButtonTest extends BaseTest {
 

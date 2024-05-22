@@ -1,9 +1,8 @@
-package tests.elementsPageTests;
+package ui.tests.elementsPageTests;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.BaseTest.BaseTest;
+import ui.tests.BaseTest.BaseTest;
 
 public class ElementsPageCheckBox extends BaseTest {
     @Test

@@ -3,7 +3,7 @@
 <suite name="Suite1">
     <test name="CheckElementsButton" verbose="1" preserve-order="true" >
         <classes>
-            <class name="tests.clickElementsButton.ClieckElementsButtonTest"></class>
+            <class name="ui.tests.clickElementsButton.ClieckElementsButtonTest"></class>
         </classes>
     </test>
 </suite>

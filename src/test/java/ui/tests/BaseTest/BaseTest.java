@@ -1,4 +1,4 @@
-package tests.BaseTest;
+package ui.tests.BaseTest;
 
 import common.CommonAction;
 import org.openqa.selenium.Alert;
